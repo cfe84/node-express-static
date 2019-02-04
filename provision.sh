@@ -1,6 +1,11 @@
 #!/bin/bash
 
-read -p "Your alias > " ALIAS
+SUBSCRIPTION_NAME=`az account show --query "name"`
+
+echo "We will create resources in subscription $SUBSCRIPTION_NAME"
+echo "Press Ctrl+C if this is not correct and select another subscription by running:"
+echo "az account set --subscription SUBSCRIPTION_ID_OR_NAME"
+read -p "Enter your alias > " ALIAS
 
 NAME="training-containers-$ALIAS"
 RESOURCE_GROUP="$NAME"
